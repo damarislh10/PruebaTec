@@ -4,6 +4,6 @@ import tw from 'tailwind-react-native-classnames'
 
 export default function Title({text}) {
   return (
-      <Text style={tw`text-2x1 font-bold tracking-wide p-2 text-center`}>{text}</Text>
+      <Text style={tw`font-bold tracking-wide p-2 text-center`}>{text}</Text>
   )
 }

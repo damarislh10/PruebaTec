@@ -13,7 +13,7 @@ export default function Form({ signup, onSubmit, error }) {
 
   const navigation = useNavigation();
 
-  screen = signup ? "Home" : "Register";
+  screen = signup ? "Login" : "Register";
   const [email, setEmail] = useState(""),
     [password, setPassword] = useState(""),
     [name, setName] = useState("");
@@ -43,13 +43,13 @@ export default function Form({ signup, onSubmit, error }) {
 
       <FormButton
         primary={true}
-        text={!signup ? "Login" : "Register"}
+        text={!signup ? "Login" : "Registrarse"}
         onPress={() => onSubmit(email, password, name)}
       />
       <FormButton
         primary={false}
         onPress={() => navigation.navigate(screen)}
-        text={signup ? "Login" : "Register"}
+        text={signup ? "Login" : "Registrarse"}
       />
     </View>
   );

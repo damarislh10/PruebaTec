@@ -1,6 +1,6 @@
 # Login, Register user and play Tic Tac Toe
 
-The first project is login and user registration with react native and firebase, there will be a home in the main one with three buttons Start session, register and edit profile and each one will have the navigability to redirect to said page with said validations.
+The first project is login and user registration with react native and firebase and the second project is a tic tac toe with two players and the first one to have the sequence of their card wins.
 
 
 

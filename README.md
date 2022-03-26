@@ -11,6 +11,10 @@ You'll need Node.js and a emulador and Gulp on your local development machine.
 2. Run $ npm install
 3. Run $ npm install to install the dependencies
 
+### Stack tecnologies
+1. React Native
+2. Firebase
+
 ### Up and running
 1. Run $ npm start
 2. Visit http://localhost:19006/

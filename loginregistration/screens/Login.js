@@ -5,13 +5,16 @@ import Form from "../components/Form";
 import tw from "tailwind-react-native-classnames";
 import Layout from "./Layout";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigation } from "@react-navigation/native";
 
 export default function Login({ signup }) {
   const [errorMessage, setError] = useState(),
     [successMessage, setSuccess] = useState("");
 
 
+  /* Esto es con firebase se loguea con el correo y contraseña 
+  se obtiene el signInWith de firebase de que las contraseñas si son
+  correctas entonces el user se logueo 
+  */ 
   const login = (email, password) => {
     if (!email && !password) {
       alert("Por favor ingrese todos los campos requeridos");

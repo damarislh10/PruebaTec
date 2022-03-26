@@ -12,14 +12,14 @@ export default function Home({ signup }) {
 
   return (
     <Layout>
-      <View style={tw`w-3/4 `}>
+      <View style={tw`w-3/4`}>
         <Title text="Home" />
 
         <Button
           onPress={() => navigation.navigate(screen)}
           title="Iniciar sesion"
-          style={{ flex: 1 }}
-        />
+          style={[styles.buttonHome]}
+                />
         <Button
           onPress={() => navigation.navigate(screen2)}
           title="Registrarse"
@@ -34,6 +34,6 @@ export default function Home({ signup }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingB: 20,
   },
+
 });

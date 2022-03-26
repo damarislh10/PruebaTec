@@ -10,6 +10,10 @@ export default function Register() {
   const [errorMessage, setError] = useState(),
   [successMessage, setSuccess] = useState("")
 
+  /* Esto es con firebase para registrarse con el correo y contraseña 
+  createUserWithEmailAndPassword de firebase y aparecera en la bd el correo, uid,
+  fecha de creacion y fecha de acceso.
+  */ 
   const register  = (email, password) => {
     if(!email && !password)
     {

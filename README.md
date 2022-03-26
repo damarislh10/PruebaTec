@@ -14,6 +14,7 @@ You'll need Node.js and a emulador and Gulp on your local development machine.
 ### Stack tecnologies
 1. React Native
 2. Firebase
+3. Tailwind
 
 ### Up and running
 1. Run $ npm start

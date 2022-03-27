@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   playBoard: {
-    borderWidth: 10,
+    borderWidth: 6,
     borderRadius: 10,
     borderColor: "green",
   },

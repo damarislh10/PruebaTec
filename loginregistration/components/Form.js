@@ -9,8 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 const FormInputGroup = ({ children }) => {
   return <View style={tw`my-3`}>{children}</View>;
 };
-export default function Form({ signup, onSubmit, error }) {
-
+export default function Form({ signup, onSubmit }) {
   const navigation = useNavigation();
 
   screen = signup ? "Login" : "Register";
@@ -20,31 +19,33 @@ export default function Form({ signup, onSubmit, error }) {
 
   return (
     <View>
-      {/* <FormInputGroup>
-        <FormLabel text="Name" />
-        <FormInput onChangeText={(text) => setName(text)} value={name} />
-      </FormInputGroup> */}
+
+      { screen !== "Register" ?
+       <FormInputGroup>
+          <FormLabel text="Nombre" />
+          <FormInput onChangeText={(text) => setName(text)} value={name} />
+          </FormInputGroup>
+      : <Text></Text>
+      }
 
       <FormInputGroup>
-        <FormLabel text="Email" />
+        <FormLabel text="Correo" />
         <FormInput onChangeText={(text) => setEmail(text)} value={email} />
-
       </FormInputGroup>
 
       <FormInputGroup>
-        <FormLabel text="Password" />
+        <FormLabel text="Contraseña" />
         <FormInput
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
         />
-
       </FormInputGroup>
 
       <FormButton
         primary={true}
         text={!signup ? "Login" : "Registrarse"}
-        onPress={() => onSubmit(email, password, name)}
+        onPress={() => onSubmit(name, email, password)}
       />
       <FormButton
         primary={false}

@@ -10,13 +10,12 @@ export default function Login({ signup }) {
   const [errorMessage, setError] = useState(),
     [successMessage, setSuccess] = useState("");
 
-
   /* Esto es con firebase se loguea con el correo y contraseña 
   se obtiene el signInWith de firebase de que las contraseñas si son
   correctas entonces el user se logueo 
-  */ 
-  const login = (email, password) => {
-    if (!email && !password) {
+  */
+  const login = (name, email, password) => {
+    if (!name && !email && !password) {
       alert("Por favor ingrese todos los campos requeridos");
     } else {
       const auth = getAuth();
@@ -24,7 +23,7 @@ export default function Login({ signup }) {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          setSuccess(`Usuario Logeado satisfactoriamente, ${user.uid}`);
+          setSuccess(`Usuario Logeado satisfactoriamente ¡Bienveni@! ${user.displayName}`);
           setError("");
         })
         .catch((error) => {
@@ -35,7 +34,6 @@ export default function Login({ signup }) {
   return (
     <Layout>
       <View style={tw`w-3/4`}>
-
         <Title text="Login" />
         {!!errorMessage && (
           <Text style={tw`bg-red-400 p-1 my-2 text-red-700`}>

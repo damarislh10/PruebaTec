@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Home from "./screens/Home";
 import Register from "./screens/Register";
-import {config} from "./firebaseConfig"
 import Login from "./screens/Login";
 
 const Stack = createNativeStackNavigator();

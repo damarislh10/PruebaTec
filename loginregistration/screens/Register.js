@@ -1,14 +1,15 @@
 import { View, Text } from "react-native";
 import React, { useState } from "react";
+
+import {getAuth, createUserWithEmailAndPassword,updateProfile,} from "@firebase/auth";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../firebaseConfig";
+
 import Title from "../components/Title";
 import Form from "../components/Form";
 import tw from "tailwind-react-native-classnames";
 import Layout from "./Layout";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
+
 export default function Register() {
   const [errorMessage, setError] = useState(),
     [successMessage, setSuccess] = useState("");
@@ -17,22 +18,26 @@ export default function Register() {
   createUserWithEmailAndPassword de firebase y aparecera en la bd el correo, uid,
   fecha de creacion y fecha de acceso.
   */
+
   const register = (name, email, password) => {
     if (!name && !email && !password) {
       alert("Por favor ingrese todos los campos requeridos");
     } else {
-      const auth = getAuth();
+      const app = initializeApp(firebaseConfig);
+
+      const auth = getAuth(app);
       createUserWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {
-          // Signed in
           await updateProfile(auth.currentUser, { displayName: name });
           const user = userCredential.user;
+          console.log(user);
           setSuccess("Usuario Creado satisfactoriamente");
           setError("");
         })
         .catch((err) => setError(err.message));
     }
   };
+
   return (
     <Layout>
       <View style={tw`w-3/4`}>

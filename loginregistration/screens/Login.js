@@ -2,11 +2,15 @@ import { View, Text, Button, Image } from "react-native";
 import React, { useState } from "react";
 import Title from "../components/Title";
 import Form from "../components/Form";
+
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../firebaseConfig";
+
 import tw from "tailwind-react-native-classnames";
 import Layout from "./Layout";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-export default function Login({ signup }) {
+export default function Login() {
   const [errorMessage, setError] = useState(),
     [successMessage, setSuccess] = useState("");
 
@@ -18,12 +22,15 @@ export default function Login({ signup }) {
     if (!name && !email && !password) {
       alert("Por favor ingrese todos los campos requeridos");
     } else {
-      const auth = getAuth();
+      const app = initializeApp(firebaseConfig);
+
+      const auth = getAuth(app);
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-          setSuccess(`Usuario Logeado satisfactoriamente ¡Bienveni@! ${user.displayName}`);
+          setSuccess(
+            `Usuario Logeado satisfactoriamente ¡Bienveni@! ${user.displayName}`
+          );
           setError("");
         })
         .catch((error) => {

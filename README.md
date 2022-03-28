@@ -17,9 +17,13 @@ You'll need Node.js and a emulador and Gulp on your local development machine.
 3. Tailwind
 
 ### Up and running
-1. Run $ npm start
-2. Select the device to connect in the emulator
-3. Visit http://localhost:19006/
-4. Enjoy :)
+1. npm install --global expo-cli
+2. npm install @react-navigation/native
+3. expo install firebase
+4. npm i tailwind-react-native-classnames
+5. Run $ npm start
+6. Select the device to connect in the emulator
+7. Visit http://localhost:19006/
+8. Enjoy :)
 
 
